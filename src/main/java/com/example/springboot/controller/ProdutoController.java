@@ -14,13 +14,13 @@ public class ProdutoController {
         return produtoRepository.findAll();
     }
 
-    @GetMapping(path = "/create/{nome}")
+    @PostMapping(path = "/create/{nome}")
     public void save(@PathVariable("nome") String nome){
         Produto produto = new Produto(nome);
         produtoRepository.save(produto);
     }
 
-    @GetMapping(path = "/delete/{id}")
+    @DeleteMapping(path = "/delete/{id}")
     public void delete(@PathVariable("id") int id){
         produtoRepository.deleteById(id);
     }
